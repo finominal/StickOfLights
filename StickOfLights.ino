@@ -5,15 +5,15 @@
  #include <avr/pgmspace.h>
  
  
-#define DATAPIN 3
+#define DATAPIN 1
 #define p(x) Serial.print(x)
 #define pl(x) Serial.println(x)
  
  
 //control
 //const int LEDCOUNT= 51;//BikeBeacon
-const int LEDCOUNT = 12;//Hood
-//const int LEDCOUNT = 50;//scarf
+//const int LEDCOUNT = 12;//Hood
+const int LEDCOUNT = 48;//scarf
 CRGB leds[LEDCOUNT];
  
 byte eepromAddress = 0;
@@ -21,7 +21,7 @@ int program = 8; //zero based
 int numberOfPrograms = 9;
  
 //Colors
-volatile uint16_t brightness = 255;
+volatile uint16_t brightness = 100;
  
  
  
@@ -52,7 +52,7 @@ void setup()
   Serial.begin(115200);
   Serial.println("*** RESET ***");
  
-  FastLED.addLeds<WS2811, DATAPIN, RGB>(leds, LEDCOUNT);
+  FastLED.addLeds<WS2811, DATAPIN, GRB>(leds, LEDCOUNT);
   //FastLED.addLeds<WS2801,2, 3, RGB>(leds, LEDCOUNT);
  
   movement = random(0,20)/0.7; //randomize start pattern
