@@ -43,9 +43,6 @@ volatile uint32_t pink = Color(brightness,brightness/8,brightness/2);
 volatile uint32_t aqua = Color(0,brightness/2,brightness/2);
 volatile uint32_t yellow = Color(brightness/2,brightness/2,0);
 
-
- 
- 
 void setup()
 {
   delay(1000);
@@ -68,7 +65,7 @@ void loop()
 switch(program)
 {
    case 0:
-    pl("BouncingBalls");
+    pl("balls");
     BouncingBalls();
     break;
   case 1:
