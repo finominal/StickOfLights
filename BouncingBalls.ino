@@ -156,11 +156,11 @@ void InitializeBalls()
  
   //delay(50);//helps with frame time calculations
  
-  ball one =   {CRGB::Red,stickHeight,0,BALLTOP-1,BALLTOP-1,0,true,6,0  ,-0.93,millis()-20,millis()};
+  ball one =   {CRGB::MediumVioletRed,stickHeight,0,BALLTOP-1,BALLTOP-1,0,true,6,0  ,-0.93,millis()-20,millis()};
   //delay(50); 
-  ball two = { CRGB::Green,stickHeight,0,BALLTOP-1,BALLTOP-1,0,true,6,100,-0.94,millis()-20,millis()};
+  ball two = { CRGB::DarkCyan,stickHeight,0,BALLTOP-1,BALLTOP-1,0,true,6,100,-0.94,millis()-20,millis()};
   //delay(50);
-  ball three =  {CRGB::Blue,stickHeight,0,BALLTOP-1,BALLTOP-1,0,true,6,200,-0.95,millis()-20,millis()};
+  ball three =  {CRGB::OrangeRed,stickHeight,0,BALLTOP-1,BALLTOP-1,0,true,6,200,-0.95,millis()-20,millis()};
   //delay(50);
  
   balls[0] = one;

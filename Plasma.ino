@@ -4,22 +4,17 @@ void Rainbow()
  
   for(int i = 0; i<LEDCOUNT; i++)
   {
-    //memset(leds, 0, LEDCOUNT * 3);
+   
  
-    shade = SinVerticle(i,0,size)
+    shade = //SinVerticle(i,0,size)
             + SinRotating(i,0,size)
             + SinCircle(i,0, size)
             ;
            
     leds[i] = CHSV(mapLed(shade), 255, brightness);
-    //leds[i].g += leds[i].r*abs(sin(movement));
-    //leds[i].b += leds[i].r*abs(cos(movement/3));
-   
-    //leds[i].r = map( sin(shade*PI)*100, mapMin, mapMax, 0, brightness);
-    //leds[i].g = 0; //map( sin(shade*PI+2*PI*sin(movement/23))*100, mapMin, mapMax, 0, brightness);
-    //leds[i].b = map( sin(shade*PI+4*PI*sin(movement/20))*100, mapMin, mapMax, 0, brightness); 
+
   }
-  movement+=movementFactor;
+  movement+=movementFactor*0.8 ;
 }
  
 void RainbowMorphing()
@@ -30,7 +25,7 @@ void RainbowMorphing()
   {
     //memset(leds, 0, LEDCOUNT * 3);
  
-    shade = //SinVerticle(i,0,size)
+    shade = SinVerticle(i,0,size/2)
             + SinRotating(i,0,size)
             + SinCircle(i,0, size)
             ;
@@ -71,7 +66,7 @@ void RedGreen()
  
   }
   movement+=movementFactor;
-  CheckForSerialProgram();
+  
 }
  
  
@@ -88,7 +83,7 @@ void RedBlue()
     leds[i].g=0;
   }
   movement+=movementFactor;
-  CheckForSerialProgram();
+  
 }
  
 void BlueGreen()
@@ -107,7 +102,7 @@ void BlueGreen()
     
    }
    movement+=movementFactor;
-   CheckForSerialProgram();
+  
 }
  
 void RedMorphing()
@@ -124,7 +119,7 @@ void RedMorphing()
       leds[i].b = leds[i].r*abs(sin(movement/2));
    }
    movement+=movementFactor;
-   CheckForSerialProgram();
+   
 }
 
  void Pink()
@@ -141,7 +136,7 @@ void RedMorphing()
       leds[i].b = leds[i].r/2;
    }
    movement+=movementFactor;
-   CheckForSerialProgram();
+   
 }
  
 void AquaCentred()
@@ -158,6 +153,24 @@ void AquaCentred()
    
     }
     movement+=movementFactor/2;//bit faster5
+
+}
+
+void TestPlasma()
+{
+  for(int i = 0; i<LEDCOUNT; i++)
+  {
+  shade = SinVerticle(i,0,size/4)
+            + SinRotating(i,0,size/2)
+            //+ SinCircleCentred(i,0, size/2)
+            ;
+   leds[i] = CHSV(mapLed(shade), 255, brightness);
+   leds[i].r = 0;
+   leds[i].g = leds[i].b;
+   
+    }
+    movement+=movementFactor/2;
+  
 }
  
  
@@ -165,10 +178,13 @@ float SinVerticle(float x, float y, float size)
 {
   return sin(x / size + movement);
 }
+
+//can we make this not zoom right out? 
 float SinRotating(float x, float y, float size)
 {
   return sin( (x * sin(movement/2 ) + y * cos(movement/5)) /size ) ;
 }
+
 float SinCircle(float x, float y, float size)
 {
   float cx = LEDCOUNT * sin(movement/7);

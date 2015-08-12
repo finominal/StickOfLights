@@ -12,13 +12,14 @@
  
 //control
 //const int LEDCOUNT= 51;//BikeBeacon
+const int LEDCOUNT= 46;//BikeBeacon
 //const int LEDCOUNT = 12;//Hood
-const int LEDCOUNT = 48;//scarf
+//const int LEDCOUNT = 48;//scarf
 CRGB leds[LEDCOUNT];
  
 byte eepromAddress = 0;
-int program = 8; //zero based
-int numberOfPrograms = 9;
+int program = 0; //zero based
+int numberOfPrograms = 7;
  
 //Colors
 volatile uint16_t brightness = 100;
@@ -77,28 +78,24 @@ switch(program)
     Rainbow();
     break;
   case 3:
-  pl("RedGreen");
-    RedGreen();
-    break;
-  case 4:
-  pl("BlueGreen");
-    BlueGreen();
-    break;
-  case 5:
   pl("AquaCentred");
     AquaCentred();
     break;
-  case 6:
+  case 4:
   pl("RedMorphing");
     RedBlue();
     break;
-  case 7:
-  pl("RedBlue");
+  case 5:
+  pl("Pink");
     Pink();
     break;
-  case 8:
+  case 6:
     pl("Fire");
     Fire();
+    break;
+  case 7:
+    pl("TestPlasma");
+    TestPlasma();
     break;
 }
  FastLED.show();
